@@ -6,9 +6,9 @@
 package changemaker;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
- * Chapter 2 Tutorial 2
  *
  * @author skiroc
  */
@@ -24,18 +24,23 @@ public class ChangeMaker {
      */
     public static void main(String[] args) {
         // Variables 
+        String strAmount;
         int originalAmount, amount, quarters, dimes, nickels, pennies;
 
+        strAmount = JOptionPane.showInputDialog("Enter a whole number from 1 to 99.\n"
+                + "I will find a combination of coins equal\n to that amount of change");
+
         // Creating Scanner object
-        Scanner kb = new Scanner(System.in);
+//        Scanner kb = new Scanner(System.in);
 
         // Prompting user to enter amount of change 
-        System.out.println("I will find a combination of coins equal "
-                + "to the ammount of change entered");
+//        System.out.println("I will find a combination of coins equal "
+//                + "to the ammount of change entered");
+//
+//        System.out.println("Enter a whole amount from 1 to 99:");
+//        amount = kb.nextInt();
 
-        System.out.println("Enter a whole amount from 1 to 99:");
-        amount = kb.nextInt();
-        
+        amount = Integer.parseInt(strAmount);
         originalAmount = amount;
 
         // Calaculating number of coins and remaining change
@@ -46,15 +51,20 @@ public class ChangeMaker {
         nickels = amount / NICKEL;
         amount = amount % NICKEL;
         pennies = amount;
-        
-        // Displaying number of coins to user
-        System.out.println(originalAmount + " cents in coins can be given as:");
-        System.out.println(quarters + " quarters.");
-        System.out.println(dimes + " dimes.");
-        System.out.println(nickels + " nickels.");
-        System.out.println(pennies + " pennies.");
-        
 
+        // Displaying number of coins to user
+//        System.out.println(originalAmount + " cents in coins can be given as:");
+//        System.out.println(quarters + " quarters.");
+//        System.out.println(dimes + " dimes.");
+//        System.out.println(nickels + " nickels.");
+//        System.out.println(pennies + " pennies.");
+
+        JOptionPane.showMessageDialog(null, originalAmount + 
+                " cents in coins can be given as:\n"
+                + quarters + " quarters\n" + dimes + " dimes\n" 
+                + nickels + " nickels\n" + pennies + " pennies");
+
+        System.exit(0);
     } //end main
 
 } //end class
