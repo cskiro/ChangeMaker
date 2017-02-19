@@ -5,7 +5,6 @@
  */
 package changemaker;
 
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +14,7 @@ import javax.swing.JOptionPane;
 public class ChangeMaker {
 
     // Constants
+    public static final int HALF_DOLLAR = 50;
     public static final int QUARTER = 25;
     public static final int DIME = 10;
     public static final int NICKEL = 5;
@@ -25,7 +25,7 @@ public class ChangeMaker {
     public static void main(String[] args) {
         // Variables 
         String strAmount;
-        int originalAmount, amount, quarters, dimes, nickels, pennies;
+        int originalAmount, amount, halfDollars, quarters, dimes, nickels, pennies;
 
         strAmount = JOptionPane.showInputDialog("Enter a whole number from 1 to 99.\n"
                 + "I will find a combination of coins equal\n to that amount of change");
@@ -44,6 +44,8 @@ public class ChangeMaker {
         originalAmount = amount;
 
         // Calaculating number of coins and remaining change
+        halfDollars = amount / HALF_DOLLAR;
+        amount = amount % HALF_DOLLAR;
         quarters = amount / QUARTER;
         amount = amount % QUARTER;
         dimes = amount / DIME;
@@ -54,15 +56,16 @@ public class ChangeMaker {
 
         // Displaying number of coins to user
 //        System.out.println(originalAmount + " cents in coins can be given as:");
+//        Systen.out.println(half dollars + " half dollars.");
 //        System.out.println(quarters + " quarters.");
 //        System.out.println(dimes + " dimes.");
 //        System.out.println(nickels + " nickels.");
 //        System.out.println(pennies + " pennies.");
 
         JOptionPane.showMessageDialog(null, originalAmount + 
-                " cents in coins can be given as:\n"
-                + quarters + " quarters\n" + dimes + " dimes\n" 
-                + nickels + " nickels\n" + pennies + " pennies");
+                " cents in coins can be given as:\n" + halfDollars + 
+                " half dollars\n" + quarters + " quarters\n" + dimes + 
+                " dimes\n" + nickels + " nickels\n" + pennies + " pennies");
 
         System.exit(0);
     } //end main
